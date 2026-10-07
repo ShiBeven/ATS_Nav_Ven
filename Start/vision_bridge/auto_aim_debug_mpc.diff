@@ -1,0 +1,10 @@
+diff --git a/src/auto_aim_debug_mpc.cpp b/src/auto_aim_debug_mpc.cpp
+--- a/src/auto_aim_debug_mpc.cpp
++++ b/src/auto_aim_debug_mpc.cpp
+@@
+ #include "io/camera.hpp"
+ #include "io/gimbal/gimbal.hpp"
++#include "io/ros2/gimbal_topic_bridge.hpp"
+@@
+-  io::Gimbal gimbal(config_path);
++  io::GimbalTopicBridge gimbal;  // 串口融合：经 ROS2 话题与导航通信，不再直接开串口

@@ -1,0 +1,63 @@
+standard_robot_pp_ros2:
+  ros__parameters:
+    device_name: /dev/ttyACM0
+    baud_rate: 921600
+    flow_control: none
+    parity: none
+    stop_bits: "1"
+    set_detector_color: false
+    record_rosbag: true
+    debug: false
+
+robot_decision:
+  ros__parameters:
+    goal_points:
+      x: [0.2, 5.38, 3.6, 0.0]
+      y: [0.18, 2.2, 3.6, 0.0]
+      z: [0.0, 0.0, 0.0, 0.0]
+    point_roles:
+      supply_safe_point_index: 0
+      patrol_indices: [1, 2]
+      low_hp_candidate_indices: [1, 2]
+      critical_time_target_index: 1
+    time_thresholds:
+      abundant: 300
+      normal: 240
+      tense: 120
+      critical: 40
+    hp_thresholds:
+      abundant:
+        high: 400
+        medium: 220
+        low: 120
+      normal:
+        high: 400
+        medium: 250
+        low: 150
+      tense:
+        high: 400
+        medium: 250
+        low: 150
+      critical:
+        high: 400
+        medium: 250
+        low: 150
+    decision_config:
+      path_tolerance: 0.2
+      nav2_action_server: "/navigate_to_pose"
+      decision_period_ms: 100
+      goal_republish_interval_s: 1.5
+      goal_position_tolerance: 0.1
+      waypoint_stop_duration_s: 0.0
+
+joint_state_publisher:
+  ros__parameters:
+    use_sim_time: false
+    rate: 200
+    source_list: ["serial/gimbal_joint_state"]
+    offset_timestamp: 0.0
+
+robot_state_publisher:
+  ros__parameters:
+    use_sim_time: false
+    publish_frequency: 200.0
