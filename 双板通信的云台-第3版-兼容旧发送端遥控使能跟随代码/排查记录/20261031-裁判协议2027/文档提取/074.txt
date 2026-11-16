@@ -1,0 +1,31 @@
+ 
+73   © 2026 大疆 版权所有 
+ 
+  optional  uint32 target_id = 1;  
+  optional  bool open = 2;  
+  optional bool launch_confirm = 3;  
+} 
+2.2.30  DartSelectTargetStatus Sync 
+用途：飞镖目标选择状态同步。 
+数据编号 数据类型 数据用途 
+1 uint32 目标 ID 
+2 uint32 闸门状态（0：关闭，1：开启中，2：已开启） 
+message  DartSelectTargetStatus Sync { 
+  optional uint 32 target_id = 1;  
+  optional uint 32 open = 2;  
+} 
+2.2.31  SentryCtrlCommand  
+用途：哨兵控制指令请求。 
+数据编号 数据类型 数据用途 
+1 uint32 指令编号（0=无效） 
+指令编号枚举： 
+ 1: 补血点补弹 
+ 3: 远程补弹 
+ 4: 远程回血 
+ 5: 确认复活 
+ 6: 确认花费金币复活 
+ 7：切换为进攻姿态 
+ 8: 切换为防御姿态 
+ 9：切换为移动姿态 
+ 10：切换为强化进攻姿态 
+ 11：切换为强化防御姿态 

@@ -1,0 +1,35 @@
+ 
+53   © 2026 大疆 版权所有 
+ 
+数据编号 数据类型 数据用途 
+8 bool 是否暂停 
+9 uint32 
+当局胜者。0 为平局，1 为红方胜利，2 为蓝方胜利。仅在“当前阶
+段”为“比赛结算中”时该值有意义，其余时间发送 255 
+10 uint32 
+比赛结束原因。仅在“当前阶段”为“比赛结算中”时该值有意义，
+其余时间发送 255 
+current_stage 枚举值： 
+ 0：未开始比赛 
+ 1：准备阶段 
+ 2：十五秒裁判系统自检阶段 
+ 3：五秒倒计时 
+ 4：比赛中 
+ 5：比赛结算中 
+end_reason 枚举值： 
+ 1：基地被摧毁 
+ 2：控制度 
+ 3：全队总攻击伤害 
+ 4：全队机器人总剩余血量 
+ 5：平局 
+ 6：异常终止 
+ 7：主裁判手动判定胜负 
+message  GameStatus {  
+  optional  uint32 current_round = 1;  
+  optional  uint32 total_rounds = 2;  
+  optional  uint32 red_score = 3;  
+  optional  uint32 blue_score = 4;  
+  optional  uint32 current_stage = 5;  
+  optional  int32 stage_countdown_sec = 6;  
+  optional  int32 stage_elapsed_sec = 7;  
+  optional  bool is_paused = 8;  

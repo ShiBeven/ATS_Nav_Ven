@@ -1,0 +1,13 @@
+{
+  "base_and_backup_unchanged": true,
+  "verified_files": 1838,
+  "changed_firmware_files": [
+    "application/usb_task.c",
+    "application/usb_task.h"
+  ],
+  "flashed": false,
+  "firmware_sha256": {
+    "PROJECT.hex": "ce51d294aafb53311e7203a8718662b25319225cff276cd6c890cda7f8e5a612",
+    "PROJECT.axf": "f5f71ce3447613ef6098a01b0f29e6aafad44016b25a48eab2dd9102daa7e6a2"
+  }
+}

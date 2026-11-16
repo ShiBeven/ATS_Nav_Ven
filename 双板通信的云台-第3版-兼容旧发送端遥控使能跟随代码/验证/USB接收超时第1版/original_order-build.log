@@ -1,0 +1,4 @@
+D:\code-ai\双板通信的云台-第2版-分离视觉跟随与发射使能代码\验证\USB接收超时第1版\original_order.c: In function 'usb_task':
+D:\code-ai\双板通信的云台-第2版-分离视觉跟随与发射使能代码\验证\USB接收超时第1版\original_order.c:35:27: warning: unused parameter 'argument' [-Wunused-parameter]
+   35 | void usb_task(void const *argument)
+      |               ~~~~~~~~~~~~^~~~~~~~

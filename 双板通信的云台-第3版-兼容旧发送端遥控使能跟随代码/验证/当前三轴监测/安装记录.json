@@ -1,0 +1,45 @@
+{
+  "date": "20261022-182816",
+  "backup": "D:\\code-ai\\双板通信的云台-修改备份\\20261022-182816-当前三轴监测前",
+  "channels": 20,
+  "rate_hz": 100,
+  "frame_bytes": 84,
+  "source_changed": [
+    "application/gimbal_task.c",
+    "application/gimbal_task.h",
+    "application/usb_task.c"
+  ],
+  "control_parameters_changed": false,
+  "hardware_flashed": false,
+  "validation": {
+    "calibration_and_init_groups": 19,
+    "snapshot_checks": [
+      "all 20 channels match the wire contract",
+      "live changes cannot tear the published sample",
+      "next publication advances the sample",
+      "84-byte float32 frame and configuration agree"
+    ],
+    "limitations": "Execute actual C snapshot functions; check stable publication and wire layout.\nDoes not emulate the USB controller, mechanics or physical CAN transmission.\n"
+  },
+  "new_sha256": {
+    "application/gimbal_task.c": "c6a235eaf9de269c4ddc750ea67fe5f957f0d0657935315866464a0bad91c7d6",
+    "application/gimbal_task.h": "00d16014a53b824c2ecc5f0cd99fb27afaa71a751c8b42d50064aee53acc4eab",
+    "application/usb_task.c": "b0d6b0a748b9c45c983af8a76dbb0b643a0d38e01e4ea8cfe1a4991bb78fa6aa"
+  },
+  "build_errors": 0,
+  "build_warnings": 63,
+  "build_log": "build-current-three-axis-trace.log",
+  "unchanged_control_functions": [
+    "GetgimbalMode",
+    "Gimbal_Init",
+    "Gimbal_Cali",
+    "Gimbal_Absolute_Angle",
+    "gimbal_feedback_update",
+    "gimbal_PID_calc",
+    "big_yaw_follow_control",
+    "gimbal_cali_fail",
+    "cmd_cali_gimbal_hook",
+    "set_cali_gimbal_hook"
+  ],
+  "hex_modified": "2026-10-22T18:28:59.475848"
+}

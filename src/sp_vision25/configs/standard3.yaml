@@ -1,0 +1,141 @@
+#enemy_color: "red"
+enemy_color: "blue"
+
+#####-----神经网络参数-----#####
+yolo_name: yolov5
+classify_model: assets/tiny_resnet.onnx
+yolov5_model_path: assets/yolov5.xml
+device: CPU
+min_confidence: 0.8
+use_traditional: true
+
+#####-----ROI-----#####
+roi: 
+  x: 420
+  y: 50
+  width: 600
+  height: 600
+
+use_roi: false
+
+#####-----传统方法参数-----#####
+threshold: 150
+max_angle_error: 45 # degree
+min_lightbar_ratio: 1.5
+max_lightbar_ratio: 20
+min_lightbar_length: 8
+min_armor_ratio: 1
+max_armor_ratio: 5
+max_side_ratio: 1.5
+max_rectangular_error: 25 # degree
+
+#####-----tracker参数-----#####
+min_detect_count: 3
+max_temp_lost_count: 15
+
+outpost_max_temp_lost_count: 75
+outpost_radius: 0.2765
+outpost_armor_z_offsets: [0.0, -0.102, 0.102]
+outpost_fixed_center_rotation_model: true
+outpost_spin_speed_lock: 2.51
+outpost_coming_angle: 60
+#决定“提前多早开始认定下一块板是应打板”，主要管选板提前量和轨迹连续性。
+outpost_leaving_angle: 18
+#决定“板进入正面附近后还能保留多久”，同时还间接决定最终 fire 相位窗口大小
+outpost_delay_time: 0.078
+outpost_fire_z_compensation: [0.0, -0.012, 0.0]
+
+#####-----aimer参数----#####
+yaw_offset: 6.16
+pitch_offset: 0.24
+coming_angle: 55
+leaving_angle: 20
+decision_speed: 8
+high_speed_delay_time: 0.056  # 略微减少高速延迟，进一步提高响应速度 
+low_speed_delay_time: 0.10  # 略微减少低速延迟
+
+#####-----shooter参数-----#####
+first_tolerance: 3 # 近距离射击容差，degree 降低容差提高精度
+second_tolerance: 2 # 远距离射击容差，degree 降低容差提高精度
+judge_distance: 2 #距离判断阈值
+auto_fire: true # 是否由自瞄控制射击
+
+#####-----相机参数-----#####
+camera_name: "hikrobot"
+exposure_ms: 6.0
+gain: 16.0
+vid_pid: "2bdf:0001"
+
+#  1  0  0
+#  0  1  0
+#  0  0  1
+R_gimbal2imubody: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+
+# 重投影误差: 0.0526px
+camera_matrix: [2410.2797198046442, 0, 720.82860484763671,
+                0, 2410.2486875639902, 535.43538193340828,
+                0, 0, 1]
+distort_coeffs: [-0.058856770892808774,
+                 0.20928777548942659,
+                 -0.00183643228699947,
+                 -0.0007374348825172724,
+                 0]
+
+# 相机同理想情况的偏角: yaw-0.14 pitch-2.70 roll-1.24 degree
+R_camera2gimbal: [0.0034085138907211654, -0.046971331975849961, 0.99889042242153436, -0.99976152872483215, -0.021706448030643033, 0.002390773029752448, 0.02157006524894085, -0.99866036473182795, -0.047034117392047881]
+t_camera2gimbal: [0.010226083120520429, 0.0086675824392858317, 0.044565265381266012]
+
+#####-----cboard参数（保留键位以兼容，当前链路未使用CAN）-----#####
+quaternion_canid: 0x100
+bullet_speed_canid: 0x101
+send_canid: 0xff
+can_interface: "can0"
+
+#####-----gimbal参数-----#####
+# false：有效 MPC 结果直接输出，不等待行为树 Attack；true：恢复原 Attack 门控。
+# 启动时读取，修改后需重启视觉程序。
+require_attack_mode: false
+com_port: "/dev/ttyACM0"
+gimbal_state_unit: "deg"
+
+#####-----planner-----#####
+fire_thresh: 0.0027  # 当前设置为0.0035弧度（约0.2度）
+bullet_speed_min: 10.0
+bullet_speed_max: 25.0
+bullet_speed_fallback: 24.0
+
+max_yaw_acc: 90  # 当前设置为60度/秒²
+Q_yaw: [3e6, 0.3]  # 当前位置权重为4e6，速度权重为0
+R_yaw: [1.57] # 当前设置为0.7
+max_pitch_acc: 75  # 当前设置为100度/秒²
+Q_pitch: [7e5, 0]  # 当前位置权重为6e6，速度权重为0
+R_pitch: [1.0]  # 当前设置为0.7
+
+#####-----buff参数-----#####
+fire_gap_time: 0.700
+predict_time: 0.120
+
+#####-----标定参数（由原 calibration.yaml/handeye.yaml 合并）-----#####
+pattern_cols: 7
+pattern_rows: 7
+center_distance_mm: 12.5
+height: 0.45      # m (450mm)
+grid_num: 40
+grid_size: 0.5    # m
+delay: 0          # ms
+
+#####-----web_debugger参数-----#####
+show_local: false
+disable_web: false
+web_host: "0.0.0.0"
+web_port: 8090
+web_fps: 30.0
+web_scale: 0.8
+web_jpeg_quality: 55
+web_client_ttl_ms: 1000
+
+#####-----debug_record参数-----#####
+record_raw_video: false
+record_debug_video: false
+record_debug_fps: 30.0
+record_debug_dir: "records"

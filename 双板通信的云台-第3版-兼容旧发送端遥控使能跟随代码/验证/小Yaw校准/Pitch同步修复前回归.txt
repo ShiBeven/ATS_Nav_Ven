@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:\code-ai\双板通信的云台\验证\小Yaw校准\verify_calibration.py", line 410, in <module>
+    assert abs(pitch['relative_angle_set']-(relative+increment))<1e-9, ('PITCH_INIT_STALE_TARGET',relative,absolute,stale,pitch['relative_angle_set'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('PITCH_INIT_STALE_TARGET', -0.45, -0.43, 1.2, 1.20172)

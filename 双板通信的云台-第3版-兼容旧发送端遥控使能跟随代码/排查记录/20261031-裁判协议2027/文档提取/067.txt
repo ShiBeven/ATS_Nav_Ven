@@ -1,0 +1,34 @@
+ 
+66   © 2026 大疆 版权所有 
+ 
+数据编号 数据类型 数据用途 
+1 uint32 发送范围（0=指定客户端，1=除哨兵，2=包含哨兵） 
+2 bytes 
+目标机器人 ID 列表（固定 7 字节，如发送给己方重装和哨兵机
+器人，红方需要填入 1，7；蓝方需要填入 101，107，后续填 0） 
+3 uint32 标记类型（1=攻击，2=防御，3=警戒，4=自定义） 
+4 uint32 标定的对方 ID 
+5 uint32 
+自定义图标 ASCII 码（仅在标记类型为 4：自定义时有效。仅允
+许发送官方选手端可接受的字母，范围为从（含）“C”到
+“L”，“N”，“O”，“Q”到“Z”） 
+6 uint32 标记模式（1=地图，2=对方机器人） 
+7 float 地图坐标 X 
+8 float 地图坐标 Y 
+message  MapClickIn fo { 
+  optional  uint32 is_send_all = 1;  
+  optional  bytes robot_id = 2;  
+  optional  uint32 mode = 3;  
+  optional  uint32 enemy_id = 4;  
+  optional  uint32 ascii = 5;  
+  optional  uint32 type = 6;  
+  optional  float map_x = 7; 
+  optional  float map_y = 8; 
+} 
+2.2.18  MapClick Cmd 
+用途：地图点击标记指令。 
+数据编号 数据类型 数据用途 
+1 uint32 发送范围（0=指定客户端，1=除哨兵，2=包含哨兵） 
+2 bytes 
+目标机器人 ID 列表（固定 7 字节，如发送给己方重装和哨兵机
+器人，红方需要填入 1，7；蓝方需要填入 101，107，后续填 0） 

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:\code-ai\双板通信的云台\验证\小Yaw校准\verify_calibration.py", line 358, in <module>
+    assert x.g['gimbal_cali_status']==3 and x.g['gimbal_cali_error']==error, ('FAILURE_AUTOMATICALLY_RESTARTED',kind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('FAILURE_AUTOMATICALLY_RESTARTED', 'abort')

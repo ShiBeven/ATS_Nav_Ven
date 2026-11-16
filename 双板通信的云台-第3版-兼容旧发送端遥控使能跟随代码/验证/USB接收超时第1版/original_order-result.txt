@@ -1,0 +1,12 @@
+PASS: fresh vision, same tick
+FAIL: fresh vision crosses 1ms tick
+FAIL: fresh vision after processing/preemption delay
+FAIL: fresh navigation crosses tick
+PASS: vision age exactly 100ms remains valid
+PASS: vision age 101ms expires
+PASS: navigation age exactly 100ms remains valid
+PASS: expired navigation falls back to fresh vision
+PASS: both command sources expired stop
+FAIL: fresh vision received across tick rollover
+PASS: 21ms age across rollover stays valid
+PASS: 101ms age across rollover expires

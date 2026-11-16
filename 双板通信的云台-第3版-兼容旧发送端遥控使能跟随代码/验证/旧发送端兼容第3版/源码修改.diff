@@ -1,0 +1,140 @@
+--- v2/application/usb_task.c
++++ v3/application/usb_task.c
+@@ -25,6 +25,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <stdarg.h>
++#include <math.h>
+ #include "usb_device.h"
+ #include "usbd_cdc_if.h"
+ #include "usbd_conf.h"
+@@ -84,6 +85,10 @@
+ static volatile uint8_t rx_overflow;
+ static uint32_t nav_last_rx, vision_last_rx;
+ static uint8_t nav_override;
++/* Read-only diagnostic: 1 means locally authorized legacy navigation aim. */
++volatile uint8_t usb_nav_compat_active = 0U;
++static uint8_t nav54_stamp_seen, nav54_compat_angles_valid;
++static uint32_t nav54_sender_stamp, nav54_stamp_changed_at;
+ static uint8_t state_tx[49];
+ static uint8_t ats_imu_state_tx[34];
+ static uint8_t ats_joint_state_tx[22];
+@@ -109,6 +114,7 @@
+ static void usb_receive_vision(VisionRecvData_t *ReceivedPacketVision);
+ static void usb_receive(void);
+ static void unified_usb_process(void);
++static uint8_t usb_nav_compat_allowed(uint32_t now);
+ static void unified_usb_send_state(void);
+ static void unified_usb_send_imu_state(void);
+ static void unified_usb_send_joint_state(void);
+@@ -157,6 +163,17 @@
+     /* RX processing may advance the tick and refresh last_rx timestamps.
+      * Sample now afterwards so fresh frames cannot underflow the age. */
+     now = HAL_GetTick();
++    /* Revoke local ownership even when no new USB frame arrives. */
++    if (usb_nav_compat_active && !usb_nav_compat_allowed(now)) {
++      usb_nav_compat_active = 0U;
++      nav_override = 0U;
++      if ((uint32_t)(now - vision_last_rx) <= 100U) {
++        ReceivedPacketVision = vision_cmd;
++      } else {
++        ReceivedPacketVision.mode = 0;
++      }
++      Update_to_resolve();
++    }
+     if ((uint32_t)(now - last_chassis) >= 10U) {
+       last_chassis = now;
+       if ((uint32_t)(now - nav_last_rx) > 100U) {
+@@ -164,6 +181,7 @@
+         Navigation_speed_set.vy = 0;
+         Navigation_speed_set.wz = 0;
+         if (nav_override) {
++          usb_nav_compat_active = 0U;
+           nav_override = 0;
+           if ((uint32_t)(now - vision_last_rx) <= 100U) {
+             ReceivedPacketVision = vision_cmd;
+@@ -252,6 +270,24 @@
+  * intentionally kept for older senders; this is an additive compatibility
+  * path for ID 0x01, len=48, total length=54.
+  */
++/* Legacy ATS senders omit tracking. Local RC authorization accepts their
++ * commanded angles; it cannot infer whether a visual target is still valid. */
++static uint8_t usb_nav_compat_allowed(uint32_t now)
++{
++#if USB_ATS_LEGACY_RC_AIM_COMPAT
++  const RC_ctrl_t *rc = get_remote_control_point();
++  if (!nav54_stamp_seen || !nav54_compat_angles_valid ||
++      (uint32_t)(now - nav_last_rx) > 100U ||
++      (uint32_t)(now - nav54_stamp_changed_at) > 100U) return 0U;
++  if (RC_data_is_error()) return 0U;
++  return (switch_is_mid(rc->rc.s[RC_Left]) &&
++          switch_is_down(rc->rc.s[RC_Right])) ? 1U : 0U;
++#else
++  (void)now;
++  return 0U;
++#endif
++}
++
+ static void unified_nav_apply_ats_gcc_54(const uint8_t *frame, uint32_t now)
+ {
+   float decoded[4];
+@@ -295,9 +331,20 @@
+     0 : RECEIVE_ROBOT_CMD_DATA.data.speed_vector.vy;
+   Navigation_speed_set.wz = RECEIVE_ROBOT_CMD_DATA.data.speed_vector.wz;
+ 
+-  /* The sender must provide a fresh, authorized target via tracking.
+-   * fire selects aim/fire mode only; chassis posture never enables aim. */
+-  nav_override = RECEIVE_ROBOT_CMD_DATA.data.tracking.tracking ? 1U : 0U;
++  if (!nav54_stamp_seen ||
++      nav54_sender_stamp != RECEIVE_ROBOT_CMD_DATA.time_stamp) {
++    nav54_stamp_seen = 1U;
++    nav54_sender_stamp = RECEIVE_ROBOT_CMD_DATA.time_stamp;
++    nav54_stamp_changed_at = now;
++  }
++  nav54_compat_angles_valid =
++    (isfinite(RECEIVE_ROBOT_CMD_DATA.data.gimbal.pitch) &&
++     isfinite(RECEIVE_ROBOT_CMD_DATA.data.gimbal.yaw)) ? 1U : 0U;
++  /* Keep the received tracking bit intact. A missing tracking signal may
++   * use explicit left-middle/right-down RC authorization, never fire/Move. */
++  usb_nav_compat_active =
++    !RECEIVE_ROBOT_CMD_DATA.data.tracking.tracking && usb_nav_compat_allowed(now);
++  nav_override = RECEIVE_ROBOT_CMD_DATA.data.tracking.tracking || usb_nav_compat_active;
+   if (nav_override) {
+     ReceivedPacketVision.yaw = RECEIVE_ROBOT_CMD_DATA.data.gimbal.yaw;
+     ReceivedPacketVision.pitch = RECEIVE_ROBOT_CMD_DATA.data.gimbal.pitch;
+@@ -316,6 +363,7 @@
+ 
+ static void unified_nav_apply_50(const uint8_t *frame, uint32_t now)
+ {
++  usb_nav_compat_active = 0U;
+   /* Standard 50-byte layout: header[0..3], timestamp[4..7],
+    * speed[8..21], chassis[22..37], gimbal[38..45], shoot[46..47],
+    * CRC16[48..49]. The two legacy one-byte fields are absent. */
+@@ -362,6 +410,7 @@
+   } else if (frame[2] == 0x01 && length == 50U) {
+     unified_nav_apply_50(frame, now);
+   } else if (frame[2] == 0x01 && length == sizeof(ReceiveDataRobotCmd_s)) {
++    usb_nav_compat_active = 0U;
+     memcpy(&RECEIVE_ROBOT_CMD_DATA, frame, length);
+     
+ 
+--- v2/application/usb_task.h
++++ v3/application/usb_task.h
+@@ -34,11 +34,14 @@
+  * Old 42-byte vision and ID 0x0E state packets are not scheduled. */
+ #define USB_ATS_COMPAT_FEEDBACK_TX 1
+ 
+-/* ATS 54-byte navigation requires tracking for gimbal ownership.
+- * Upgrade the sender to populate tracking before using this firmware.
+- * fire and chassis mode alone must not enable visual control. */
++/* 1: for legacy 54-byte senders without tracking, allow fresh navigation
++ * commands while RC is healthy and left=MID/right=DOWN. Target loss cannot
++ * be detected if the sender keeps sending stale angles with new timestamps.
++ * 0: strict tracking-only behavior from version 2. */
++#define USB_ATS_LEGACY_RC_AIM_COMPAT 1
+ 
+ #include <stdint.h>
++extern volatile uint8_t usb_nav_compat_active;
+ #include <stdbool.h>
+ 
+ /* Exact field order of the navigation board's ReceiveDataRobotCmd_s. */

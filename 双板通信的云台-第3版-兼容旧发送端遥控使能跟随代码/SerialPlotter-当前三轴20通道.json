@@ -1,0 +1,122 @@
+{
+  "connType": "serial",
+  "serialBaud": "115200",
+  "serialData": "8",
+  "serialStop": "1",
+  "serialParity": "none",
+  "enableHeader": true,
+  "headerHex": "AA 55",
+  "enableFooter": true,
+  "footerHex": "0D 0A",
+  "enableChecksum": false,
+  "dataType": "float32",
+  "endianness": "little",
+  "channelsCount": "20",
+  "maxPoints": "30000",
+  "plotWindowPoints": "1000",
+  "plotViewMode": "time",
+  "plotYScaleMode": "auto",
+  "sendIntervalUnit": "s",
+  "channels": [
+    {
+      "name": "MCU时间(s)",
+      "color": "#64748b",
+      "visible": false
+    },
+    {
+      "name": "模式(0=无力,1=INIT,3=ABS)",
+      "color": "#ef4444",
+      "visible": false
+    },
+    {
+      "name": "PitchINIT相对目标角(rad)",
+      "color": "#3b82f6",
+      "visible": false
+    },
+    {
+      "name": "Pitch相对实际角(rad)",
+      "color": "#22c55e",
+      "visible": false
+    },
+    {
+      "name": "Pitch绝对实际角(rad)",
+      "color": "#a855f7",
+      "visible": false
+    },
+    {
+      "name": "Pitch目标速度(rad_s)",
+      "color": "#06b6d4",
+      "visible": false
+    },
+    {
+      "name": "Pitch实际速度(rad_s)",
+      "color": "#64748b",
+      "visible": false
+    },
+    {
+      "name": "PitchCAN待发送指令",
+      "color": "#ef4444",
+      "visible": true
+    },
+    {
+      "name": "小YawINIT相对目标角(rad)",
+      "color": "#3b82f6",
+      "visible": false
+    },
+    {
+      "name": "小Yaw相对实际角(rad)",
+      "color": "#22c55e",
+      "visible": false
+    },
+    {
+      "name": "小Yaw目标速度(rad_s)",
+      "color": "#a855f7",
+      "visible": false
+    },
+    {
+      "name": "小Yaw实际速度(rad_s)",
+      "color": "#06b6d4",
+      "visible": false
+    },
+    {
+      "name": "小YawCAN待发送指令",
+      "color": "#22c55e",
+      "visible": true
+    },
+    {
+      "name": "大YawINIT相对目标角(rad)",
+      "color": "#ef4444",
+      "visible": false
+    },
+    {
+      "name": "大Yaw相对实际角(rad)",
+      "color": "#3b82f6",
+      "visible": false
+    },
+    {
+      "name": "大Yaw目标速度(rad_s)",
+      "color": "#22c55e",
+      "visible": false
+    },
+    {
+      "name": "大Yaw实际速度(rad_s)",
+      "color": "#a855f7",
+      "visible": false
+    },
+    {
+      "name": "大YawCAN待发送指令",
+      "color": "#3b82f6",
+      "visible": true
+    },
+    {
+      "name": "DM在线(1=在线)",
+      "color": "#64748b",
+      "visible": false
+    },
+    {
+      "name": "DM数据年龄(ms)",
+      "color": "#ef4444",
+      "visible": false
+    }
+  ]
+}

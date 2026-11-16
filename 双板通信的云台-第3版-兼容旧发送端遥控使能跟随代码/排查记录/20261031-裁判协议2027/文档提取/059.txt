@@ -1,0 +1,30 @@
+ 
+58   © 2026 大疆 版权所有 
+ 
+  optional  string param = 2;  
+} 
+2.2.8  RobotInjuryStat  
+用途：机器人一次存活期间累计受伤统计。 
+数据编号 数据类型 数据用途 
+1 uint32 该次存活累计受伤总计 
+2 uint32 撞击伤害 
+3 uint32 17mm 弹丸伤害 
+4 uint32 42mm 弹丸伤害 
+5 uint32 飞镖溅射伤害 
+6 uint32 模块离线扣血 
+7 uint32 异常离线扣血 
+8 uint32 判罚扣血 
+9 uint32 服务器强制使其战亡扣血 
+10 uint32 击杀者 ID（若未检测到击杀者，值为 0） 
+message  RobotInjuryStat {  
+  optional uint 32 total_d amage = 1;  
+  optional uint 32 collision_damage = 2;  
+  optional uint 32 small_projectile_damage = 3;  
+  optional uint 32 large_projectile_damage = 4;  
+  optional uint 32 dart_splash_damage = 5;  
+  optional uint 32 module_offline_damage = 6;  
+  optional uint 32 offlin e_damage = 7;  
+  optional uint 32 penalty_damage = 8;  
+  optional uint 32 server_kill_damage = 9;  
+  optional uint 32 killer_id = 10;  
+} 

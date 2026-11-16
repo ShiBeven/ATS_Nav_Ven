@@ -1,0 +1,17 @@
+{
+  "date": "20261022-171626",
+  "backup": "D:\\code-ai\\双板通信的云台-修改备份\\20261022-171626-移除校准超速前",
+  "changes": [
+    "remove calibration +/-20 RPM abort",
+    "remove unused RPM macro"
+  ],
+  "pitch_command": 8000,
+  "small_yaw_command": 8000,
+  "regression_failed_before_fix": true,
+  "checks_passed": 18,
+  "hardware_flashed": false,
+  "build_errors": 0,
+  "build_warnings": 63,
+  "build_log": "build-cali-no-overspeed.log",
+  "hex_modified": "2026-10-22T17:16:48.340167"
+}

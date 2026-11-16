@@ -1,0 +1,24 @@
+ 
+3   © 2026 大疆 版权所有 
+ 
+1 串口协议 
+1.1 串口协议格式 
+通信方式为串口的部分， 性质如下：8 位数据位，1 位停止位， 无硬件流控， 无校验位。 详细信息见以下表
+格： 
+表 1-1 波特率 
+物理接口 波特率 
+电源管理模块←→机器人 115200 
+图传发送端←→机器人 921600 
+表 1-2 通信协议格式 
+frame_header  cmd_id  data frame_tail 
+5-byte 2-byte n-byte 2-byte，CRC16， 整包校验 
+表 1-3 frame_header 格式 
+SOF data_length  seq CRC8 
+1-byte 2-byte 1-byte 1-byte 
+表 1-4 帧头详细定义 
+域 偏移位置 大小（字节） 详细描述 
+SOF 0 1 数据帧起始字节，固定值为 0xA5 
+data_length 1 2 数据帧中 data 的长度 
+seq 3 1 包序号 
+CRC8 4 1 帧头 CRC8 校验 
+  

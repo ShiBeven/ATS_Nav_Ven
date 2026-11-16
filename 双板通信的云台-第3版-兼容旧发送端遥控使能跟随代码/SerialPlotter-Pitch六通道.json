@@ -1,0 +1,28 @@
+{
+  "connType": "serial",
+  "serialBaud": "115200",
+  "serialData": "8",
+  "serialStop": "1",
+  "serialParity": "none",
+  "enableHeader": true,
+  "headerHex": "AA 55",
+  "enableFooter": true,
+  "footerHex": "0D 0A",
+  "enableChecksum": false,
+  "dataType": "float32",
+  "endianness": "little",
+  "channelsCount": "6",
+  "maxPoints": "10000",
+  "plotWindowPoints": "1000",
+  "plotViewMode": "time",
+  "plotYScaleMode": "auto",
+  "sendIntervalUnit": "s",
+  "channels": [
+    {"name": "Pitch目标角(rad)", "color": "#ef4444", "visible": true},
+    {"name": "Pitch实际角(rad)", "color": "#3b82f6", "visible": true},
+    {"name": "Pitch目标速度(rad_s)", "color": "#22c55e", "visible": false},
+    {"name": "Pitch实际速度(rad_s)", "color": "#a855f7", "visible": false},
+    {"name": "Pitch发送指令(非安培)", "color": "#f59e0b", "visible": false},
+    {"name": "Pitch编码器相对角(rad)", "color": "#06b6d4", "visible": false}
+  ]
+}

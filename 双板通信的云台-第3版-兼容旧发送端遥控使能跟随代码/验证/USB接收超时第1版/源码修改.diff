@@ -1,0 +1,12 @@
+--- backup/application/usb_task.c
++++ version1/application/usb_task.c
+@@ -154,6 +154,9 @@
+     }
+ #else
+     unified_usb_process();
++    /* RX processing may advance the tick and refresh last_rx timestamps.
++     * Sample now afterwards so fresh frames cannot underflow the age. */
++    now = HAL_GetTick();
+     if ((uint32_t)(now - last_chassis) >= 10U) {
+       last_chassis = now;
+       if ((uint32_t)(now - nav_last_rx) > 100U) {

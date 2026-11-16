@@ -1,0 +1,8 @@
+{
+  "host_test": "PASS 604 checks: actual RX parser, legacy compatibility, navigation and unified 49-byte state, units, axes, CRC, busy guards",
+  "hardware_tested": false,
+  "independent_49_byte_reference": "5a 2b 0e 3e 78 56 34 12 01 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 3f 00 00 40 40 00 00 80 be 00 00 a0 3f 00 00 b0 41 00 00 9c d0",
+  "legacy_vision_tx_preserved": true,
+  "ats_compat_feedback_tx_selected": true,
+  "sentry_posture_enum_2027": true
+}

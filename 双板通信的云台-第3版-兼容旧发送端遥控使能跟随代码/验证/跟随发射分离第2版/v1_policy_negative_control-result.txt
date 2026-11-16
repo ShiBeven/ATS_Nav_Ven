@@ -1,0 +1,1 @@
+FAIL line 707: nav_last_rx == tick && nav_override == 0 && ReceivedPacketVision.mode == 0

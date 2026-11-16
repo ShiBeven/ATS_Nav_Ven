@@ -1,0 +1,33 @@
+ 
+68   © 2026 大疆 版权所有 
+ 
+数据编号 数据类型 
+3 uint32 
+机器人是否特殊标识（0=否；1=是；2=是，但目标
+机器人此时定位模块为离线状态） 
+ 
+message  RadarInfoToClient {  
+  repeated uint32 RadarSingleRobotInfo ; 
+} 
+message  RadarSingleRobotInfo  
+{ 
+  optional uint32 target_pos_x=1;  
+  optional uint32 target_pos_y=2;  
+  optional uint32 is_high_light= 3; 
+} 
+2.2.20  CustomByteBlock  
+用途：自定义数据流。 
+数据编号 数据类型 数据用途 
+1 bytes 最大为 2.4 kbit 的自定义数据包 
+message  CustomByteBlock {  
+  optional  bytes data = 1;  
+} 
+2.2.21  AssemblyCommand  
+用途：重装装配指令。 
+数据编号 数据类型 数据用途 
+1 uint32 装配操作类型（0=开始兑换，1=确认装配，2=取消装配） 
+2 uint32 选中的装配难度 
+message  AssemblyCommand {  
+  optional uint 32 operation = 1;  
+  optional uint 32 difficulty = 2;  
+} 

@@ -1,0 +1,35 @@
+ 
+17   © 2026 大疆 版权所有 
+ 
+  float initial _speed;   
+}shoot_data_t;  
+表 1- 18 0x0208 
+字节偏移量 大小 说明 
+0 2 机器人自身拥有的 17mm 弹丸允许发弹量 
+2 2 42mm 弹丸允许发弹量 
+4 2 剩余金币数量 
+6 2 
+堡垒增益点提供的储备允许发弹量；该值与机器人是否实际激活堡垒无
+关 
+typedef _packed struct 
+{ 
+  uint16_t projectile_allowance _17mm; 
+  uint16_t projectile_allowance _42mm;   
+  uint16_t remaining_ gold_coin ; 
+  uint16_t projectile_allowance_fortress;  
+}projectile_allowance _t; 
+表 1- 19 0x0209 
+字节偏移量 大小 说明 
+0 4 
+ bit 位值为 1/0 的含义：是否已检测到该增益点 RFID 卡 
+ bit 0：己方补给区 
+ bit 1：己方装配区增益点 
+ bit 2：R 基地增益点 
+ bit 3：B 基地增益点 
+ bit 4：R 堡垒增益点 
+ bit 5：B 堡垒增益点 
+ bit 6：R 中央高地增益点 
+ bit 7：B 中央高地增益点 
+ bit 8：R 前哨增益点 
+ bit 9：B 前哨增益点 
+ bit 10：己方制高点增益点 

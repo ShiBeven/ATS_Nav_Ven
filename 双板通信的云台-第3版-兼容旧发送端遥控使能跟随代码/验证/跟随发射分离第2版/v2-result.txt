@@ -1,0 +1,1 @@
+PASS 670 checks: actual RX parser, legacy compatibility, navigation and unified 49-byte state, units, axes, CRC, busy guards

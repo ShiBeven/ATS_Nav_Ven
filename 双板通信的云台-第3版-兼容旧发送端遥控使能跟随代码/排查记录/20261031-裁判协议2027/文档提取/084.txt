@@ -1,0 +1,26 @@
+ 
+83   © 2026 大疆 版权所有 
+ 
+    { 
+        long unixUs = DateTime.UtcNow.Ticks / 10; // 微秒级 
+        m_MqttCl ient.PublishStringAsync(topic, message, level, isRetain);  
+    } 
+    /// <summary>  
+    /// 发布消息 
+    /// </summary>  
+    public void PublishBytesMsg(string topic, byte[] message, MqttQualityOfServiceLevel 
+level = MqttQualityOfServiceLevel.ExactlyOnce, bool is Retain = false)  
+    { 
+        long unixUs = DateTime.UtcNow.Ticks / 10; // 微秒级 
+        m_MqttClient.PublishBinaryAsync(topic, message, level, isRetain);  
+    } 
+/// <summary>  
+    /// 订阅主题 
+    /// </summary>  
+    public void Subscribe(string topic)  
+    { 
+        m_MqttClient.SubscribeAsync(new 
+MqttTopicFilterBuilder(). WithTopic(topic).Build());  
+    } 
+} 
+  

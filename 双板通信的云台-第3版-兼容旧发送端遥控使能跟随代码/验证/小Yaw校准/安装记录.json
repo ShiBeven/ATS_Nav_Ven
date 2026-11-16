@@ -1,0 +1,12 @@
+{
+  "project": "D:\\code-ai\\双板通信的云台",
+  "backup": "D:\\code-ai\\双板通信的云台-修改备份\\20261022-小Yaw校准前-163713",
+  "source_files": [
+    "application/gimbal_task.c",
+    "application/gimbal_task.h",
+    "application/CAN_receive.c",
+    "application/CAN_receive.h",
+    "application/calibrate_task.c"
+  ],
+  "hardware_flashed": false
+}

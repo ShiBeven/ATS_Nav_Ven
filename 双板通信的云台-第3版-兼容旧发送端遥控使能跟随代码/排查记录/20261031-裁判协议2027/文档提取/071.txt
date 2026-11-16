@@ -1,0 +1,30 @@
+ 
+70   © 2026 大疆 版权所有 
+ 
+数据编号 数据类型 数据用途 
+2 uint32 底盘性能体系 
+3 uint32 哨兵控制方式选择 
+性能体系枚举值可参考“RobotStaticStatus”中描述。 
+sentry_control 枚举值： 
+ 0=哨兵自动控制 
+ 1=哨兵半自动控制 
+message  RobotPerformanceSelection Command  { 
+  optional uint 32 shooter = 1;  
+  optional uint 32 chassis = 2;  
+  optional uint 32 sentry_control = 3;  
+} 
+2.2.24  RobotPerformanceSelectionSync  
+用途：步兵性能体系状态同步。 
+数据编号 数据类型 数据用途 
+1 uint32 发射机构性能体系 
+2 uint32 底盘性能体系 
+3 uint32 哨兵控制方式选择 
+message  RobotPerformanceSelectionSync {  
+  optional uint 32 shooter = 1;  
+  optional uint 32 chassis = 2;  
+  optional uint 32 sentry_control = 3;  
+} 
+2.2.25  CommonCommand  
+用途：机器人多种常用指令。 
+数据编号 数据类型 数据用途 
+1 uint32 命令类型 

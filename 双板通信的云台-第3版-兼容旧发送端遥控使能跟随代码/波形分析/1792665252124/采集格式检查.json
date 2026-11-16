@@ -1,0 +1,55 @@
+{
+  "source": "C:\\Users\\cuining\\Downloads\\Scientific_Plot_Export_1792665252124.csv",
+  "sha256": "58b8816f2078a42d853828764a4e4e6566ec3490549d8744373cc568feb15c57",
+  "rows": 733,
+  "columns": 22,
+  "wall_duration_seconds": 21.964,
+  "all_values_finite": true,
+  "separator_bytes_little_endian": "0D 0A AA 55",
+  "separator_float": 23370018062336.0,
+  "channels_with_separator_1_based": [
+    7,
+    14
+  ],
+  "matching_rows_per_channel": [
+    733,
+    733
+  ],
+  "recovered_6_channel_frames": 2199,
+  "recovered_ranges": {
+    "大Yaw目标速度(rad/s)": {
+      "min": -1.2558176517486572,
+      "max": 1.0103808641433716
+    },
+    "大Yaw反馈速度(rad/s)": {
+      "min": -0.9276847839355468,
+      "max": 0.925556182861328
+    },
+    "大Yaw内部给定指令": {
+      "min": -10000.0,
+      "max": 10000.0
+    },
+    "小Yaw相对角(rad)": {
+      "min": -0.0889708846807479,
+      "max": 0.0766990408301353
+    },
+    "小Yaw绝对目标角(rad)": {
+      "min": 8.8214874267e-06,
+      "max": 1.8755464553833008
+    },
+    "小Yaw绝对实际角(rad)": {
+      "min": -0.0152728557586669,
+      "max": 1.8874871730804443
+    }
+  },
+  "big_yaw_abs_command_10000_frames": 27,
+  "nonzero_follow_formula_matching_frames": 1366,
+  "nonzero_follow_formula_candidate_frames": 1578,
+  "user_confirmed": "Only imported the 20-channel plotter configuration; did not download the 20-channel firmware.",
+  "limitations": [
+    "No valid Pitch channels, MCU sample clock or mode channel in this capture.",
+    "Recovered 6-channel values have within-group order, not per-frame MCU timestamps.",
+    "Internal current request does not prove a physical CAN transmission or actual current.",
+    "Following-formula agreement suggests normal follow control during some samples; mode was not recorded."
+  ]
+}

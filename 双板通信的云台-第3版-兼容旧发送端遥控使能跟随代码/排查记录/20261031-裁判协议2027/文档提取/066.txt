@@ -1,0 +1,32 @@
+ 
+65   © 2026 大疆 版权所有 
+ 
+ 2：双方黄牌 
+ 3：红牌 
+ 4：超功率 
+ 5：超热量 
+ 6：超射速 
+message  PenaltyInfo {  
+  optional uint 32 penalty_type = 1;  
+  optional uint 32 penalty_effect_sec = 2;  
+  optional uint 32 total_penalty_num = 3;  
+} 
+2.2.16  RobotPathPlanInfo  
+用途：哨兵轨迹规划信息。 
+数据编号 数据类型 数据用途 
+1 uint32 哨兵意图（1=攻击，2=防守，3=移动） 
+2 uint32 起始点 X 坐标（分米） 
+3 uint32 起始点 Y 坐标（分米） 
+4 repeated int32 相对起始点 X 增量数组（-128~+127，长度 49） 
+5 repeated int32 相对起始点 Y 增量数组（-128~+127，长度 49） 
+6 uint32 发送者 ID 
+message  RobotPathPlanInfo {  
+  optional  uint32 intention = 1;  
+  optional  uint32 start_pos_x = 2;  
+  optional  uint32 star t_pos_y = 3;  
+  repeated  int32 offset_x = 4 [packed = true];  
+  repeated  int32 offset_y = 5 [packed = true];  
+  optional  uint32 sender_id = 6;  
+} 
+2.2.17  MapClickInfo  
+用途：地图点击标记信息同步。 

@@ -1,0 +1,31 @@
+ 
+52   © 2026 大疆 版权所有 
+ 
+ bit 15：B 键 
+message  KeyboardMouseControl  { 
+  optional  int32 mouse_x = 1;  
+  optional  int32 mous e_y = 2; 
+  optional  int32 mouse_z = 3;  
+  optional  bool left_button_down = 4;  
+  optional  bool right_button_down = 5;  
+  optional  uint32 keyboard_value = 6;  
+  optional  bool mid_button_down = 7;  
+} 
+2.2.2  CustomControl  
+用途：最大 60 字节的自定义数据。 
+说明：该信息将通过图传链路以 0x0311 命令字发送给机器人。 
+数据编号 数据类型 数据用途 
+1 bytes 最大 60 字节的自定义数据 
+message  CustomControl  { 
+  optional  bytes data= 1; 
+} 
+2.2.3  GameStatus  
+用途：同步比赛全局状态信息。 
+数据编号 数据类型 数据用途 
+1 uint32 当前局号（从 1 开始） 
+2 uint32 总局数 
+3 uint32 红方得分 
+4 uint32 蓝方得分 
+5 uint32 当前阶段 
+6 int32 当前阶段剩余时间（秒） 
+7 int32 当前阶段已过时间（秒） 

@@ -1,0 +1,14 @@
+{
+  "date": "20261022-181328",
+  "backup": "D:\\code-ai\\双板通信的云台-修改备份\\20261022-181328-Pitch初始化同步前",
+  "source_changed": [
+    "application/gimbal_task.c"
+  ],
+  "regression_failed_before_fix": true,
+  "checks_passed": 19,
+  "hardware_flashed": false,
+  "build_errors": 0,
+  "build_warnings": 3,
+  "build_log": "build-pitch-init-sync.log",
+  "hex_modified": "2026-10-22T18:13:47.427401"
+}

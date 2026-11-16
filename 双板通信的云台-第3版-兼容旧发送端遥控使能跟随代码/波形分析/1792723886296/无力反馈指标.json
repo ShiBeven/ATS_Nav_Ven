@@ -1,0 +1,81 @@
+{
+  "source": "C:\\Users\\cuining\\Downloads\\Scientific_Plot_Export_1792723886296.csv",
+  "sha256": "d4e08436b47e839c6724bfb40e69cad1d39cef79d29a23878ea0a06d0c2a9893",
+  "rows": 1483,
+  "channels": [
+    "Pitch相对实际角(rad)",
+    "Pitch绝对实际角(rad)",
+    "Pitch实际速度(rad_s)",
+    "PitchCAN待发送指令",
+    "小Yaw相对实际角(rad)",
+    "小Yaw实际速度(rad_s)",
+    "小YawCAN待发送指令",
+    "大Yaw相对实际角(rad)",
+    "大YawCAN待发送指令"
+  ],
+  "duration_wall_s": 14.824,
+  "median_dt_s": 0.009999999999999787,
+  "mode_and_MCU_time_absent": true,
+  "commands_all_zero": true,
+  "pitch_encoder_range_deg": [
+    -14.721680454018763,
+    6.855468980791433
+  ],
+  "pitch_INS_range_deg": [
+    -13.753215124997961,
+    9.50177839027551
+  ],
+  "INS_vs_encoder_fit": [
+    1.068815613982047,
+    0.04225429432598676
+  ],
+  "INS_encoder_correlation": 0.9984980646587911,
+  "min_cos_relative_pitch": 0.9671716627149365,
+  "yaw_integral_deg": 3.0697773892698694,
+  "yaw_encoder_sum_net_deg": 2.812499864821533,
+  "small_yaw_excursion_deg": 2.7246094174686304,
+  "big_yaw_excursion_deg": 0.6152339852439481,
+  "pitch_rate_check": {
+    "correlation": 0.9999370935444057,
+    "fit_gyro_vs_rate": [
+      0.9999437648397542,
+      5.873164578010018e-05
+    ]
+  },
+  "yaw_sum_rate_check": {
+    "correlation": 0.8822461049745649,
+    "fit_gyro_vs_rate": [
+      0.9468516857319025,
+      0.00044856604508796116
+    ]
+  },
+  "static_windows": [
+    {
+      "time_s": [
+        0,
+        3.7
+      ],
+      "pitch_offset_mean_deg": 2.7650662293250687,
+      "pitch_gyro_mean": -0.00011886553185982275,
+      "small_yaw_gyro_mean": 7.920861873473371e-05
+    },
+    {
+      "time_s": [
+        6.2,
+        8.7
+      ],
+      "pitch_offset_mean_deg": 1.01189092385803,
+      "pitch_gyro_mean": 0.00032831520645410157,
+      "small_yaw_gyro_mean": 0.0003718408338027055
+    },
+    {
+      "time_s": [
+        11.2,
+        14.824
+      ],
+      "pitch_offset_mean_deg": 2.591297247817804,
+      "pitch_gyro_mean": -0.0003254226205733466,
+      "small_yaw_gyro_mean": -0.0018741268227319395
+    }
+  ]
+}

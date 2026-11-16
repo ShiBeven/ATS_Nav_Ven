@@ -1,0 +1,12 @@
+..\usb-legacy-build\obj\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/list.c
+..\usb-legacy-build\obj\list.o: D:\keil\ARM\ARMCC\Bin\..\include\stdlib.h
+..\usb-legacy-build\obj\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+..\usb-legacy-build\obj\list.o: D:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+..\usb-legacy-build\obj\list.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\usb-legacy-build\obj\list.o: ../Inc/FreeRTOSConfig.h
+..\usb-legacy-build\obj\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+..\usb-legacy-build\obj\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+..\usb-legacy-build\obj\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+..\usb-legacy-build\obj\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+..\usb-legacy-build\obj\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+..\usb-legacy-build\obj\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

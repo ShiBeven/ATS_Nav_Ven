@@ -1,0 +1,568 @@
+{
+  "baseline": "D:\\code-ai\\双板通信的云台-修改备份\\20261022-小Yaw校准前-163713",
+  "current": "D:\\code-ai\\双板通信的云台",
+  "integrity": {
+    "application/gimbal_task.c": true,
+    "application/gimbal_task.h": true,
+    "application/CAN_receive.c": true,
+    "application/CAN_receive.h": true,
+    "application/calibrate_task.c": true,
+    "MDK-ARM/PROJECT.uvprojx": true,
+    "README.md": true,
+    "MDK-ARM/OBJ/PROJECT.axf": true,
+    "MDK-ARM/OBJ/PROJECT.hex": true,
+    "MDK-ARM/OBJ/PROJECT.map": true
+  },
+  "firmware_sha256": {
+    "old": {
+      "axf": "767b7fba6d17d897262a0db1fbd719153f4652d1edfd5fcd5bd7ad7a04e5ffe3",
+      "hex": "1b1eaa2297857b9e148c8a0f91a4b58b2df2a1fe0c7f1bcc5eb88694f8ffd819",
+      "map": "2d647e119b2b0dd7324d936fe2974c70d9579ab339abe4112ef9674978831ea5"
+    },
+    "current": {
+      "axf": "b128cfe47db9b7ec10b7695d24381129637152218cbd3fb5ac64e8a2143bb9d2",
+      "hex": "027dce4e2964f107ccca6830ba7adb4ec935c832ab4fcbdbe8abeb9a3a105fca",
+      "map": "eae8309ac7ded0adf800d3cbd4c7e44fada34b90017cf97c340fd1b423edd24a"
+    }
+  },
+  "functions": {
+    "CAN_SendRcBasic": {
+      "normalized_equal": true,
+      "old_code_bytes": 70,
+      "current_code_bytes": 70
+    },
+    "CAN_SendRcAux": {
+      "normalized_equal": true,
+      "old_code_bytes": 50,
+      "current_code_bytes": 50
+    },
+    "CAN_SendRcMouse": {
+      "normalized_equal": true,
+      "old_code_bytes": 70,
+      "current_code_bytes": 70
+    },
+    "CAN_SendRcFrame": {
+      "normalized_equal": true,
+      "old_code_bytes": 34,
+      "current_code_bytes": 34
+    },
+    "CAN_SendGimbalState": {
+      "normalized_equal": true,
+      "old_code_bytes": 78,
+      "current_code_bytes": 78
+    },
+    "CAN_CmdBoard3": {
+      "normalized_equal": false,
+      "old_code_bytes": 148,
+      "current_code_bytes": 148
+    },
+    "rc_put_i16_be": {
+      "normalized_equal": true,
+      "old_code_bytes": 8,
+      "current_code_bytes": 8
+    },
+    "get_remote_control_point": {
+      "normalized_equal": true,
+      "old_code_bytes": 4,
+      "current_code_bytes": 4
+    },
+    "remote_control_init": {
+      "normalized_equal": true,
+      "old_code_bytes": 34,
+      "current_code_bytes": 34
+    },
+    "remote_control_can_timeout_check": {
+      "normalized_equal": true,
+      "old_code_bytes": 38,
+      "current_code_bytes": 38
+    },
+    "USART3_IRQHandler": {
+      "normalized_equal": true,
+      "old_code_bytes": 182,
+      "current_code_bytes": 182
+    },
+    "sbus_to_rc": {
+      "normalized_equal": true,
+      "old_code_bytes": 180,
+      "current_code_bytes": 180
+    },
+    "RC_data_is_error": {
+      "normalized_equal": true,
+      "old_code_bytes": 32,
+      "current_code_bytes": 32
+    },
+    "RC_Init": {
+      "normalized_equal": true,
+      "old_code_bytes": 84,
+      "current_code_bytes": 84
+    },
+    "RC_restart": {
+      "normalized_equal": true,
+      "old_code_bytes": 52,
+      "current_code_bytes": 52
+    },
+    "MX_TIM2_Init": {
+      "normalized_equal": true,
+      "old_code_bytes": 98,
+      "current_code_bytes": 98
+    },
+    "MX_TIM6_Init": {
+      "normalized_equal": true,
+      "old_code_bytes": 98,
+      "current_code_bytes": 98
+    },
+    "MX_CAN1_Init": {
+      "normalized_equal": true,
+      "old_code_bytes": 60,
+      "current_code_bytes": 60
+    },
+    "MX_CAN2_Init": {
+      "normalized_equal": true,
+      "old_code_bytes": 60,
+      "current_code_bytes": 60
+    },
+    "SystemClock_Config": {
+      "normalized_equal": true,
+      "old_code_bytes": 124,
+      "current_code_bytes": 124
+    },
+    "HAL_TIM_Base_MspInit": {
+      "normalized_equal": true,
+      "old_code_bytes": 278,
+      "current_code_bytes": 278
+    },
+    "HAL_CAN_MspInit": {
+      "normalized_equal": true,
+      "old_code_bytes": 222,
+      "current_code_bytes": 222
+    },
+    "MX_FREERTOS_Init": {
+      "normalized_equal": false,
+      "old_code_bytes": 228,
+      "current_code_bytes": 228
+    },
+    "HAL_CAN_AddTxMessage": {
+      "normalized_equal": true,
+      "old_code_bytes": 260,
+      "current_code_bytes": 260
+    },
+    "imu_send_cmd": {
+      "normalized_equal": true,
+      "old_code_bytes": 88,
+      "current_code_bytes": 88
+    },
+    "imu_get_gyro_snapshot": {
+      "normalized_equal": true,
+      "old_code_bytes": 108,
+      "current_code_bytes": 108
+    },
+    "gimbal_feedback_update": {
+      "normalized_equal": false,
+      "old_code_bytes": 234,
+      "current_code_bytes": 234
+    },
+    "big_yaw_follow_control": {
+      "normalized_equal": false,
+      "old_code_bytes": 388,
+      "current_code_bytes": 388
+    },
+    "big_yaw_output_limit": {
+      "normalized_equal": false,
+      "old_code_bytes": 190,
+      "current_code_bytes": 190
+    },
+    "HAL_TIM_PeriodElapsedCallback": {
+      "normalized_equal": false,
+      "old_code_bytes": 190,
+      "current_code_bytes": 196
+    },
+    "gimbal_task": {
+      "normalized_equal": false,
+      "old_code_bytes": 286,
+      "current_code_bytes": 340
+    },
+    "usb_task": {
+      "normalized_equal": false,
+      "old_code_bytes": 92,
+      "current_code_bytes": 94
+    },
+    "usb_send_yaw_debug": {
+      "status": "not present in both symbol maps"
+    },
+    "gimbal_init": {
+      "normalized_equal": false,
+      "old_code_bytes": 676,
+      "current_code_bytes": 684
+    },
+    "Gimbal_Init": {
+      "normalized_equal": false,
+      "old_code_bytes": 332,
+      "current_code_bytes": 496
+    },
+    "GetgimbalMode": {
+      "normalized_equal": false,
+      "old_code_bytes": 452,
+      "current_code_bytes": 448
+    },
+    "cali_data_read": {
+      "normalized_equal": false,
+      "old_code_bytes": 130,
+      "current_code_bytes": 190
+    },
+    "cali_data_write": {
+      "normalized_equal": true,
+      "old_code_bytes": 100,
+      "current_code_bytes": 100
+    },
+    "cali_gyro_hook": {
+      "normalized_equal": true,
+      "old_code_bytes": 80,
+      "current_code_bytes": 80
+    },
+    "gimbal_get_debug_snapshot": {
+      "normalized_equal": false,
+      "old_code_bytes": 72,
+      "current_code_bytes": 40
+    },
+    "CAN_cmd_gimbal": {
+      "normalized_equal": false,
+      "old_code_bytes": 42,
+      "current_code_bytes": 14
+    },
+    "CAN_cmd_gimbal_2": {
+      "normalized_equal": false,
+      "old_code_bytes": 42,
+      "current_code_bytes": 14
+    },
+    "CAN_cmd_gimbal_3": {
+      "normalized_equal": false,
+      "old_code_bytes": 42,
+      "current_code_bytes": 14
+    }
+  },
+  "limits": "Named addresses and PC literal references are normalized. Matching selected instruction sequences does not establish runtime timing, sensor values, whole-program equivalence or flashed firmware identity.",
+  "thread_definitions": {
+    "old": [
+      {
+        "name": "test",
+        "task": "test_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 128,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "cali",
+        "task": "calibrate_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 512,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "DETECT",
+        "task": "detect_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "gimbalTask",
+        "task": "gimbal_task+0",
+        "priority_enum": 2,
+        "instances": 0,
+        "stacksize_field": 512,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "REFEREE",
+        "task": "referee_usart_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 512,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "imuTask",
+        "task": "INS_task+0",
+        "priority_enum": 3,
+        "instances": 0,
+        "stacksize_field": 1024,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "led",
+        "task": "led_RGB_flow_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "shoot",
+        "task": "ShootTask+0",
+        "priority_enum": 1,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "VISION_SEND",
+        "task": "Vision_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "USBTask",
+        "task": "usb_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      }
+    ],
+    "current": [
+      {
+        "name": "test",
+        "task": "test_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 128,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "cali",
+        "task": "calibrate_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 512,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "DETECT",
+        "task": "detect_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "gimbalTask",
+        "task": "gimbal_task+0",
+        "priority_enum": 2,
+        "instances": 0,
+        "stacksize_field": 512,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "REFEREE",
+        "task": "referee_usart_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 512,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "imuTask",
+        "task": "INS_task+0",
+        "priority_enum": 3,
+        "instances": 0,
+        "stacksize_field": 1024,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "led",
+        "task": "led_RGB_flow_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "shoot",
+        "task": "ShootTask+0",
+        "priority_enum": 1,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "VISION_SEND",
+        "task": "Vision_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      },
+      {
+        "name": "USBTask",
+        "task": "usb_task+0",
+        "priority_enum": 0,
+        "instances": 0,
+        "stacksize_field": 256,
+        "buffer": "0x0",
+        "controlblock": "0x0"
+      }
+    ]
+  },
+  "thread_definitions_equal": true,
+  "first_small_yaw_build": {
+    "root": "D:\\code-ai\\双板通信的云台-修改备份\\20261022-170546-校准故障锁存前",
+    "sha256": {
+      "axf": "24d0d67ed333eded5d8e292a41b201b4e74f10999d921d2993b8dee062ef9e2e",
+      "hex": "c7c8fb113dcf7b41ec1f001d606a15230140cce7c13a6f2108a82179c9e42217",
+      "map": "78af733381d717352a0022b4596cf8523d781554ddf1c940667c6b130912e301"
+    },
+    "thread_definitions_equal_to_old": true,
+    "functions_vs_old": {
+      "CAN_SendRcBasic": {
+        "normalized_equal": true
+      },
+      "CAN_SendRcAux": {
+        "normalized_equal": true
+      },
+      "CAN_SendRcMouse": {
+        "normalized_equal": true
+      },
+      "CAN_SendRcFrame": {
+        "normalized_equal": true
+      },
+      "CAN_SendGimbalState": {
+        "normalized_equal": true
+      },
+      "CAN_CmdBoard3": {
+        "normalized_equal": false
+      },
+      "rc_put_i16_be": {
+        "normalized_equal": true
+      },
+      "get_remote_control_point": {
+        "normalized_equal": true
+      },
+      "remote_control_init": {
+        "normalized_equal": true
+      },
+      "remote_control_can_timeout_check": {
+        "normalized_equal": true
+      },
+      "USART3_IRQHandler": {
+        "normalized_equal": true
+      },
+      "sbus_to_rc": {
+        "normalized_equal": true
+      },
+      "RC_data_is_error": {
+        "normalized_equal": true
+      },
+      "RC_Init": {
+        "normalized_equal": true
+      },
+      "RC_restart": {
+        "normalized_equal": true
+      },
+      "MX_TIM2_Init": {
+        "normalized_equal": true
+      },
+      "MX_TIM6_Init": {
+        "normalized_equal": true
+      },
+      "MX_CAN1_Init": {
+        "normalized_equal": true
+      },
+      "MX_CAN2_Init": {
+        "normalized_equal": true
+      },
+      "SystemClock_Config": {
+        "normalized_equal": true
+      },
+      "HAL_TIM_Base_MspInit": {
+        "normalized_equal": true
+      },
+      "HAL_CAN_MspInit": {
+        "normalized_equal": true
+      },
+      "MX_FREERTOS_Init": {
+        "normalized_equal": false
+      },
+      "HAL_CAN_AddTxMessage": {
+        "normalized_equal": true
+      },
+      "imu_send_cmd": {
+        "normalized_equal": true
+      },
+      "imu_get_gyro_snapshot": {
+        "normalized_equal": true
+      },
+      "gimbal_feedback_update": {
+        "normalized_equal": false
+      },
+      "big_yaw_follow_control": {
+        "normalized_equal": false
+      },
+      "big_yaw_output_limit": {
+        "normalized_equal": false
+      },
+      "HAL_TIM_PeriodElapsedCallback": {
+        "normalized_equal": true
+      },
+      "gimbal_task": {
+        "normalized_equal": false
+      },
+      "usb_task": {
+        "normalized_equal": true
+      },
+      "gimbal_init": {
+        "normalized_equal": false
+      },
+      "Gimbal_Init": {
+        "normalized_equal": false
+      },
+      "GetgimbalMode": {
+        "normalized_equal": false
+      },
+      "cali_data_read": {
+        "normalized_equal": false
+      },
+      "cali_data_write": {
+        "normalized_equal": true
+      },
+      "cali_gyro_hook": {
+        "normalized_equal": true
+      },
+      "gimbal_get_debug_snapshot": {
+        "normalized_equal": true
+      },
+      "CAN_cmd_gimbal": {
+        "normalized_equal": false
+      },
+      "CAN_cmd_gimbal_2": {
+        "normalized_equal": false
+      },
+      "CAN_cmd_gimbal_3": {
+        "normalized_equal": false
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+ 
+69   © 2026 大疆 版权所有 
+ 
+2.2.22  TechCoreMotionStateSync  
+用途：科技核心运动状态同步。 
+数据编号 数据类型 数据用途 
+1 uint32 当前可选择的最高装配难度等级 
+2 uint32 科技核心基础状态，1 为初始位置，2 为运动中，3 为已到达对应位姿 
+3 uint32 能量单元放入状态，0 为未放入，1 为已经放入 
+4 uint32 能量单元平移状态，0 为未平移，1 为已经平移 
+5 uint32 能量单元旋转状态，0 为未旋转，1 为已经旋转 
+6 uint32 
+对方科技核心状态（仅己方四级装配可用时有效，0 为对方没有正在
+装配，1 为对方正在装配非四级难度，2 为对方正在装配四级难度） 
+7 uint32 己方装配总剩余时长（仅己方正在四级装配时有效） 
+8 uint32 
+己方单个步骤装配间隔剩余时长（己方正在四级装配时，或战亡临时
+激活缓冲期有效） 
+message  TechCoreMotionStateSync {  
+  optional uint 32 maximum_difficulty_level = 1;  
+  optional uint 32 basic_state  = 2; 
+  optional uint 32 putin_state  = 3; 
+  optional uint 32 move_state  = 4; 
+  optional uint 32 rotate_state  = 5; 
+  optional uint 32 enemy_core_status = 6; 
+  optional uint 32 remain_time_ all = 7; 
+  optional uint 32 remain_time_step = 8; 
+} 
+2.2.23  RobotPerformanceSelection Command  
+用途：地面机器人选择性能体系或控制方式。 
+数据编号 数据类型 数据用途 
+1 uint32 发射机构性能体系 

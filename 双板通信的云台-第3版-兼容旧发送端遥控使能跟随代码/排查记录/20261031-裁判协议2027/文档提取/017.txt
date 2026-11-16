@@ -1,0 +1,36 @@
+ 
+16   © 2026 大疆 版权所有 
+ 
+字节偏移量 大小 说明 
+直向上为 y 轴正方向建立的平面直角坐标系） 
+3 2 命中位置 x 坐标（单位：mm） 
+5 2 命中位置 y 坐标（单位：mm） 
+typedef _packed struct 
+{ 
+  uint8_t armor_id : 4; 
+  uint8_t HP_deduction_reason  : 4; 
+uint16_t hit_sequence;  
+int16_t hit_position_x;  
+int16_t hit_position_y;  
+}hurt _data_t; 
+ 
+0x0206 的受伤害情况为机器人裁判系统本地判定，即时发送，但实际是否受到对应伤害受规则
+条例影响，请以服务器最终判定为准。 
+表 1- 17 0x0207 
+字节偏移量 大小 说明 
+0 1 
+弹丸类型： 
+ 1：17mm 弹丸 
+ 2：42mm 弹丸 
+1 1 
+发射机构 ID： 
+ 1：17mm 发射机构 
+ 2：保留位 
+ 3：42mm 发射机构 
+2 1 弹丸射速（单位：Hz） 
+3 4 弹丸初速度（单位：m/s） 
+typedef _packed struct 
+{ 
+  uint8_t bullet_t ype; 
+  uint8_t shooter_ number; 
+  uint8_t launching_frequency ; 

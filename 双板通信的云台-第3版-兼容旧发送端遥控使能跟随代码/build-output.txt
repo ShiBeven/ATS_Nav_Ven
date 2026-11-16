@@ -1,0 +1,19 @@
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\K5\ARM\ARMCC\Bin'
+Build target 'PROJECT'
+compiling remote_control.c...
+..\application\usb_task.h(238): warning:  #1295-D: Deprecated declaration get_navigation_data_point - give arg types
+  extern ReceivedPacketTwist_s *get_navigation_data_point();
+..\application\gimbal_task.h(174): warning:  #47-D: incompatible redefinition of macro "YAW2_SPEED_PID_MAX_OUT"  (declared at line 71)
+  #define YAW2_SPEED_PID_MAX_OUT 20000.0f
+..\application\gimbal_task.h(179): warning:  #47-D: incompatible redefinition of macro "YAW2_MAX_ANGLE"  (declared at line 18)
+  #define YAW2_MAX_ANGLE (60.0f * PI / 180.0f)  // 60度上限
+..\application\gimbal_task.h(180): warning:  #47-D: incompatible redefinition of macro "YAW2_MIN_ANGLE"  (declared at line 19)
+  #define YAW2_MIN_ANGLE 0.0f                   // 0度下限
+..\application\remote_control.c(229): warning:  #177-D: function "RC_abs"  was declared but never referenced
+  static int16_t RC_abs(int16_t value)
+..\application\remote_control.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=69068 RO-data=3556 RW-data=1236 ZI-data=50388  
+FromELF: creating hex file...
+".\OBJ\PROJECT.axf" - 0 Error(s), 5 Warning(s).
+Build Time Elapsed:  00:00:04
