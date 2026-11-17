@@ -1,1 +1,0 @@
-FAIL line 893: usb_nav_compat_active==1 && nav_override==1 && ReceivedPacketVision.mode==1

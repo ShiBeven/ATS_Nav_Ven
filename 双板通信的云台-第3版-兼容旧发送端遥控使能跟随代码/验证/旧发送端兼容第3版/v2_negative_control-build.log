@@ -1,4 +1,0 @@
-D:\code-ai\双板通信的云台-第3版-兼容旧发送端遥控使能跟随代码\验证\旧发送端兼容第3版\v2_negative_control.cpp: In function 'void usb_task(const void*)':
-D:\code-ai\双板通信的云台-第3版-兼容旧发送端遥控使能跟随代码\验证\旧发送端兼容第3版\v2_negative_control.cpp:588:27: warning: unused parameter 'argument' [-Wunused-parameter]
-  588 | void usb_task(void const *argument)
-      |               ~~~~~~~~~~~~^~~~~~~~

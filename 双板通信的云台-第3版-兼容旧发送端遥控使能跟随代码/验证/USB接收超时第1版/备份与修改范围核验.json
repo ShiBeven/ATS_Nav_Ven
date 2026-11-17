@@ -1,8 +1,0 @@
-{
-  "original_unchanged": true,
-  "backup_identical": true,
-  "verified_files": 1806,
-  "changed_existing_source_or_project_files": [
-    "application/usb_task.c"
-  ]
-}

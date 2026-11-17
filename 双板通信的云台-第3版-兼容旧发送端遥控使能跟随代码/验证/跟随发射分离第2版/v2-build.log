@@ -1,4 +1,0 @@
-D:\code-ai\双板通信的云台-第2版-分离视觉跟随与发射使能代码\验证\跟随发射分离第2版\v2.cpp: In function 'void usb_task(const void*)':
-D:\code-ai\双板通信的云台-第2版-分离视觉跟随与发射使能代码\验证\跟随发射分离第2版\v2.cpp:545:27: warning: unused parameter 'argument' [-Wunused-parameter]
-  545 | void usb_task(void const *argument)
-      |               ~~~~~~~~~~~~^~~~~~~~

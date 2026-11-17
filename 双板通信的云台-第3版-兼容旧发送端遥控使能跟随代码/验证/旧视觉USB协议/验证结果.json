@@ -1,9 +1,0 @@
-{
-  "host_test": "PASS 277 checks: actual parser, split/coalesced/mixed frames, CRC recovery, navigation override, legacy TX and busy buffer",
-  "timeout_and_can_forwarding_unchanged": true,
-  "non_usb_sources_unchanged": true,
-  "hardware_tested": false,
-  "usb_source_sha256": "83976a395f3047204b15d3b960ac3efd901351fc22a52696c1cd23dc145e70a2",
-  "keil_build": "0 errors, 70 warnings; HEX generated",
-  "firmware_sha256": "A4DF05A12FB20C4D3FD67A2C06DDE802E12F90A0FE6703C556FB26EED9CD67DF"
-}
